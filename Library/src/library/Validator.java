@@ -218,6 +218,14 @@ public class Validator {
 						: isValidDate(borrowingData[4]));
 		return valid;
 	}
+	
+	public boolean isValidBook(String bookId,String title,String author,String category,String language,boolean availableForLoan) {
+		if(bookId.isEmpty() || title.isEmpty() || author.isEmpty() || category.isEmpty() || language.isEmpty()) {
+			return false;
+		}
+		
+		return true;
+	}
 
 
 }

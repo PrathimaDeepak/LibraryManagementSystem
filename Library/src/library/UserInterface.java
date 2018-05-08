@@ -493,7 +493,7 @@ public class UserInterface extends javax.swing.JFrame {
 
         jPanel19.setBorder(javax.swing.BorderFactory.createTitledBorder("Book Information"));
 
-        jLabel9.setText("Book Id:");
+        jLabel9.setText("Book ID:");
 
         jLabel10.setText("Title:");
 
@@ -622,7 +622,7 @@ public class UserInterface extends javax.swing.JFrame {
 
         jLabel19.setText("Category:");
 
-        jLabel20.setText("ISBN:");
+        jLabel20.setText("Book ID:");
 
         jTextField12.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1554,11 +1554,7 @@ public class UserInterface extends javax.swing.JFrame {
 //        String numberOfCopies = jTextField20.getText();
 
         boolean valid;
-        valid = getValidator().isValidString(title) && getValidator().isValidName(author);
-//        		&& getValidator().isValidISBN(isbn) && getValidator().isValidString(publisher)
-//        		&& getValidator().isValidDate(dateOfPublication) && getValidator().isValidInteger(numberOfCopies) 
-//        		&& getValidator().isValidInteger(availableCopies) && getValidator().isValidString(category) 
-//        		&& (getBooks().searchISBN(isbn) == -1);
+        valid = getValidator().isValidBook(bookId,title,author,category,language,availableForLoan);
 
         if (valid) {
             try {
@@ -1576,7 +1572,7 @@ public class UserInterface extends javax.swing.JFrame {
                 Logger.getLogger(UserInterface.class.getName()).log(Level.SEVERE, null, ex);
             }
         } else {
-            jTextArea4.setText("Invalid Data");
+            jTextArea4.setText("Please enter data into all fields");
         }
     }                                     
 

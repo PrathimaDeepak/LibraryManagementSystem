@@ -1,6 +1,8 @@
 package library;
 
-
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
 
 /**
  * This class manages book data
@@ -24,10 +26,8 @@ public class Books {
 	 * Default constructor
 	 */
     private UserInterface userInterface;
-
-
-
-        public UserInterface getUserInterface(){
+    
+    	public UserInterface getUserInterface(){
         return userInterface;
     }
         
@@ -76,8 +76,37 @@ public class Books {
 	public String insertBook(Book aBook) {
 		int index = dataSize;
 		booksArray[index] = aBook; // inserting the book in the empty location
+		writeToBooksFile(booksArray, dataSize);
 		dataSize++;
 		return "\nBook inserted into the system successfully.\n";
+	}
+	
+	public void writeToBooksFile(Book[] booksArray, int dataSize) {
+		final String file_name = "src/resources/books.txt";
+		BufferedWriter bw = null;
+		FileWriter fw = null;
+		try {
+			StringBuilder content = new StringBuilder();
+			for(int i=0; i<= dataSize ; i++) {
+				Book book = booksArray[i];
+				content.append(book.getBookId()+","+book.getTitle()+","+book.getAuthor()+","+book.getCategory()+","+book.getLanguage()+","+book.isAvailableForLoan()+"\n");
+			}
+			fw = new FileWriter(file_name);
+			bw = new BufferedWriter(fw);
+			bw.write(content.toString());
+			System.out.println("Done");
+		} catch (IOException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (bw != null)
+					bw.close();
+				if (fw != null)
+					fw.close();
+			} catch (IOException ex) {
+				ex.printStackTrace();
+			}
+		}
 	}
 
 	/**
@@ -89,15 +118,15 @@ public class Books {
 	 *            the author of the book
 	 * @param category
 	 *            the category of the book
-	 * @param isbn
-	 *            the ISBN of the book
+	 * @param bookId
+	 *            the ID of the book
 	 * @return message representing the search results
 	 */
 	public String searchBook(String title, String author, String category,
-			String isbn) {
+			String bookId) {
 
 		if (title.isEmpty() && author.isEmpty() && category.isEmpty()
-				&& isbn.isEmpty()) // checking for empty input from the user
+				&& bookId.isEmpty()) // checking for empty input from the user
 			return "No results matching your request!\n";
 
 		String results = "Results:\n--------\n";
@@ -106,16 +135,22 @@ public class Books {
 		title = title.trim().toLowerCase();
 		author = author.trim().toLowerCase();
 		category = category.trim().toLowerCase();
-		isbn = isbn.trim().toLowerCase();
+		bookId = bookId.trim().toLowerCase();
 		while (booksArray[i] != null) // linear search
 		{
 
 			if (booksArray[i].getTitle().toLowerCase().contains(title)
 					&& booksArray[i].getAuthor().toLowerCase().contains(author)
-					&& booksArray[i].getCategory().toLowerCase().contains(
-							category)) {
+					&& booksArray[i].getCategory().toLowerCase().contains(category)
+					&& booksArray[i].getBookId().toLowerCase().contains(bookId)) {
 				foundBooks++;
-				results = results + foundBooks + ")" + booksArray[i].getTitle()
+				String isAvailable;
+				if(booksArray[i].isAvailableForLoan()) {
+					isAvailable = "Available for loan";
+				}else {
+					isAvailable = "Not available for loan";
+				}
+				results = results + booksArray[i].getBookId() + "   " + booksArray[i].getTitle()  + " -- " + isAvailable
 						+ "\r\n";
 			}
 			i++;
