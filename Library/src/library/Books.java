@@ -74,11 +74,25 @@ public class Books {
 	 *            the book to insert
 	 */
 	public String insertBook(Book aBook) {
-		int index = dataSize;
-		booksArray[index] = aBook; // inserting the book in the empty location
-		writeToBooksFile(booksArray, dataSize);
-		dataSize++;
-		return "\nBook inserted into the system successfully.\n";
+		boolean isDuplicate = checkForDuplicateBookID(aBook.getBookId(),booksArray);
+		if(!isDuplicate) {
+			int index = dataSize;
+			booksArray[index] = aBook; // inserting the book in the empty location
+			writeToBooksFile(booksArray, dataSize);
+			dataSize++;
+			return "\nBook inserted into the system successfully.\n";			
+		}else {
+			return "\nBook ID already exists\n";
+		}
+	}
+	
+	private boolean checkForDuplicateBookID(String bookId,Book[] booksArray) {
+		for(int i=0; i< booksArray.length; i++) {
+			if(booksArray[i].getBookId().equalsIgnoreCase(bookId)) {
+				return true;
+			}
+		}
+		return false;
 	}
 	
 	public void writeToBooksFile(Book[] booksArray, int dataSize) {
@@ -89,7 +103,9 @@ public class Books {
 			StringBuilder content = new StringBuilder();
 			for(int i=0; i<= dataSize ; i++) {
 				Book book = booksArray[i];
-				content.append(book.getBookId()+","+book.getTitle()+","+book.getAuthor()+","+book.getCategory()+","+book.getLanguage()+","+book.isAvailableForLoan()+"\n");
+				if(book != null) {
+					content.append(book.getBookId()+","+book.getTitle()+","+book.getAuthor()+","+book.getCategory()+","+book.getLanguage()+","+book.isAvailableForLoan()+"\n");
+				}
 			}
 			fw = new FileWriter(file_name);
 			bw = new BufferedWriter(fw);
@@ -129,7 +145,7 @@ public class Books {
 				&& bookId.isEmpty()) // checking for empty input from the user
 			return "No results matching your request!\n";
 
-		String results = "Results:\n--------\n";
+		String results = "Results:\n--------\n" + "BookID   " + "Title  --  Availability\n-------------------------------------\n";
 		int foundBooks = 0;
 		int i = 0;
 		title = title.trim().toLowerCase();
@@ -164,24 +180,24 @@ public class Books {
 	 * searches for a book with a given ISBN and returns its index or returns -1
 	 * when not found
 	 * 
-	 * @param isbn
-	 *            the book's ISBN
+	 * @param bookId
+	 *            the book's ID
 	 * @return the index of the book in the books array
 	 */
-	public int searchISBN(String isbn) {
+	public int searchBookById(String bookId) {
 
-		if (isbn.isEmpty())
+		if (bookId.isEmpty())
 			return -1;
 		int index = -1;
 		int i = 0;
 		boolean found = false;
 		while ((!found) && (booksArray[i] != null)) // linear search
 		{
-			/*if (booksArray[i].getIsbn().equalsIgnoreCase(isbn)) {
+			if (booksArray[i].getBookId().equalsIgnoreCase(bookId)) {
 				index = i;
 				found = true;
 
-			}*/
+			}
 			i++;
 
 		}
@@ -189,49 +205,24 @@ public class Books {
 
 	}
 
-	/**
-	 * Adds a number of copies to a book
-	 * 
-	 * @param isbn
-	 *            the book's ISNB
-	 * @param n
-	 *            the number of copies to add
-	 * @return message displaying method progress
-	 */
-//	public String addCopy(String isbn, int n) {
-//		String message = "";
-//		int index = searchISBN(isbn);
-//		if (index == -1)
-//			message = "Invalid ISBN!\n"; // ISBN validation
-//		else {
-//			booksArray[index].setNumberOfCopies(booksArray[index]
-//					.getNumberOfCopies()
-//					+ n);
-//			booksArray[index].setAvailableNumberOfCopies(booksArray[index]
-//					.getAvailableNumberOfCopies()
-//					+ n);
-//			message = "Number of copies has been updated.\n";
-//		}
-//		return message;
-//
-//	}
-
+	
 	/**
 	 * Deletes a book given its ISBN
 	 * 
-	 * @param isbn
-	 *            the book's ISBN
+	 * @param bookId
+	 *            the book's ID
 	 * @return message displaying method progress
 	 */
-	public String deleteBook(String isbn) {
+	public String deleteBook(String bookId) {
 		String message;
-		int index = searchISBN(isbn);
+		int index = searchBookById(bookId);
 		if (index == -1)
-			message = "Invalid ISBN\n"; // ISBN Validation
+			message = "Invalid Book ID\n"; // ISBN Validation
 		else {
 			System.arraycopy(booksArray, index + 1, booksArray, index,
 					booksArray.length - index - 1);
 			dataSize--;
+			writeToBooksFile(booksArray,dataSize);
 			message = "Book deleted successfully.\n";
 		}
 		return message;
@@ -248,12 +239,11 @@ public class Books {
 	 */
 	public String displayBooks() {
 
-		String message = "Books:\n------\n";
+		String message = "BookID   " + "Title  --  Author\n-------------------------------------\n";
 		int counter = 0;
 		for (int i = 0; i < dataSize; i++) {
 			counter++;
-			message = message + counter + ")" + booksArray[i].getTitle()
-					+ "\r\n";
+			message = message + booksArray[i].getBookId() + "   " + booksArray[i].getTitle() + " -- " + booksArray[i].getAuthor() + "\r\n";
 		}
 		if (counter == 0)
 			message = "No available books\n";

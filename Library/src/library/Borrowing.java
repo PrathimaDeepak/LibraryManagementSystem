@@ -73,9 +73,9 @@ public class Borrowing {
 	public String borrow(String isbn, int id, Date due) throws ParseException {
 		String message = "";
 
-		int bookIndex = getUserInterface().getBooks().searchISBN(isbn);
+		int bookIndex = getUserInterface().getBooks().searchBookById(isbn);
 
-		int memberID = getUserInterface().getMembers().searchID(id);
+		int memberID = getUserInterface().getMembers().searchStudentById(String.valueOf(id));
 
 		if (bookIndex == -1)
 			message = "Invalid ISBN\n";// validating ISBN
@@ -174,7 +174,7 @@ public class Borrowing {
 		else {
 
 			borrowingArray[index].setDateReturned(dateReturned);
-			int bookIndex = getUserInterface().getBooks().searchISBN(isbn);
+			int bookIndex = getUserInterface().getBooks().searchBookById(isbn);
 			if (bookIndex != -1)// ISBN validation
 			{
 				Book returnedBook = getUserInterface().getBooks().getBooksArray()[bookIndex];
@@ -205,7 +205,7 @@ public class Borrowing {
 			if (borrowingArray[i].getDueDate().before(new Date())
 					&& borrowingArray[i].getDateReturned() == null) {
 				counter++;
-				int bookIndex = getUserInterface().getBooks().searchISBN(
+				int bookIndex = getUserInterface().getBooks().searchBookById(
 						borrowingArray[i].getIsbn());
 				if (bookIndex == -1)
 					message = "The book of ISBN: "

@@ -198,27 +198,15 @@ public class IOManager {
             String s;
             while ((s = in.readLine()) != null) {
                 String[] tokens = s.split(",");// splitting each line
-                if (tokens.length == 8 || (tokens.length == 7 && s.charAt(s.length() - 1) == ',')) {
+                if (tokens.length == 3 || (tokens.length == 2 && s.charAt(s.length() - 1) == ',')) {
                     if (getUserInterface().getValidator().isValidMemberLine(tokens)) {
                         membersArray[i] = new Member();
-                        membersArray[i].setId(Integer.parseInt(tokens[0]));
+                        membersArray[i].setStudentId(tokens[0]);
                         membersArray[i].setName(tokens[1]);
-                        membersArray[i].setAddress(tokens[2]);
-                        membersArray[i].setStreet(tokens[3]);
-                        membersArray[i].setCity(tokens[4]);
-                        membersArray[i].setPhoneNumber(tokens[5]);
-                        membersArray[i].setAge(Integer.parseInt(tokens[6]));
-                        if (s.charAt(s.length() - 1) != ',') {
-                            membersArray[i].setEmail(tokens[7]);
-                        } else // System allows empty entry for e-mail field
-                        {
-                            membersArray[i].setEmail("");
-                        }
+                        membersArray[i].setStudentClass(Integer.parseInt(tokens[2]));
                         i++;
                     }
-
                 }
-
             }
             in.close();
             getUserInterface().getMembers().setDataSize(i);

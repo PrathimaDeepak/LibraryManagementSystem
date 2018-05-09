@@ -189,12 +189,7 @@ public class Validator {
 	 */
 	public boolean isValidMemberLine(String[] memberData) {
 
-		boolean valid = isValidInteger(memberData[0])
-				&& isValidName(memberData[1])
-				&& isValidPhoneNumber(memberData[5])
-				&& isValidInteger(memberData[6])
-				&& ((memberData.length == 8) ? isValidEmail(memberData[7])
-						: true); // the system allows empty field for e-mail
+		boolean valid = isValidName(memberData[1]);
 
 		return valid;
 	}
@@ -209,7 +204,7 @@ public class Validator {
 	public boolean isValidBorrowingLine(String[] borrowingData) {
 
 		boolean valid = isValidISBN(borrowingData[0])
-				&& (getUserInterface().getBooks().searchISBN(borrowingData[0]) != -1)
+				//&& (getUserInterface().getBooks().searchISBN(borrowingData[0]) != -1)
 				&& isValidInteger(borrowingData[1])
 				&& isValidDate(borrowingData[2])
 				&& isValidDate(borrowingData[3])
@@ -221,6 +216,14 @@ public class Validator {
 	
 	public boolean isValidBook(String bookId,String title,String author,String category,String language,boolean availableForLoan) {
 		if(bookId.isEmpty() || title.isEmpty() || author.isEmpty() || category.isEmpty() || language.isEmpty()) {
+			return false;
+		}
+		//TO DO: add regex validation for book ID
+		return true;
+	}
+	
+	public boolean isValidMember(String studentId, String name, int studentClass) {
+		if(studentId.isEmpty() || name.isEmpty() || studentClass == 0 || studentClass < 1 || studentClass > 10) {
 			return false;
 		}
 		

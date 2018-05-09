@@ -1,6 +1,8 @@
 package library;
 
-
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
 
 /**
  * This class manages members data
@@ -74,11 +76,56 @@ public class Members {
 	 * @return message displaying method progress
 	 */
 	public String register(Member aMember) {
-
-		int index = dataSize;
-		membersArray[index] = aMember;
-		dataSize++; // incrementing data size
-		return "\nRegistration process completed successfully.\n";
+		boolean isDuplicate = checkForDuplicateStudentID(aMember.getStudentId(), membersArray);
+		if(!isDuplicate) {
+			int index = dataSize;
+			membersArray[index] = aMember;
+			dataSize++; // incrementing data size
+			writeToMembersFile(membersArray,dataSize);
+			return "\nRegistration process completed successfully.\n";
+		}else {
+			return "\nStudent ID already exists\n";
+		}
+		
+	}
+	
+	private boolean checkForDuplicateStudentID(String studentId, Member[] membersArray) {
+		for(int i=0; i< membersArray.length; i++) {
+			if(membersArray[i].getStudentId().equalsIgnoreCase(studentId)) {
+				return true;
+			}
+		}
+		return false;
+	}
+	
+	public void writeToMembersFile(Member[] membersArray, int dataSize) {
+		final String file_name = "src/resources/members.txt";
+		BufferedWriter bw = null;
+		FileWriter fw = null;
+		try {
+			StringBuilder content = new StringBuilder();
+			for(int i=0; i<= dataSize ; i++) {
+				Member member = membersArray[i];
+				if(member != null) {
+					content.append(member.getStudentId()+","+member.getName()+","+member.getStudentClass()+"\n");
+				}
+			}
+			fw = new FileWriter(file_name);
+			bw = new BufferedWriter(fw);
+			bw.write(content.toString());
+			System.out.println("Done");
+		} catch (IOException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (bw != null)
+					bw.close();
+				if (fw != null)
+					fw.close();
+			} catch (IOException ex) {
+				ex.printStackTrace();
+			}
+		}
 	}
 
 	/**
@@ -88,13 +135,13 @@ public class Members {
 	 *            member's ID
 	 * @return member's index in the members array
 	 */
-	public int searchID(int id) {
+	public int searchStudentById(String studentId) {
 		int index = -1;
 		int i = 0;
 		boolean found = false;
 		while ((!found) && (membersArray[i] != null))// linear search
 		{
-			if (membersArray[i].getId() == id) {
+			if (membersArray[i].getStudentId().equalsIgnoreCase(studentId)) {
 				index = i;
 				found = true;
 
@@ -112,17 +159,19 @@ public class Members {
 	 *            the member's ID
 	 * @return message representing operation progress
 	 */
-	public String removeMember(int id) {
+	public String removeMember(String studentId) {
 		String message = "";
-		int index = searchID(id);
+		int index = searchStudentById(studentId);
 		if (index == -1)
 			message = "Invalid ID"; // ID validation
-		else if (getUserInterface().getBorrower().getUnreturnedBooks(id) != 0)
-			message = "You must return the books you borrowed before leaving the system!\n";
+//		else if (getUserInterface().getBorrower().getUnreturnedBooks(id) != 0)
+//			message = "You must return the books you borrowed before leaving the system!\n";
 		else {
 			System.arraycopy(membersArray, index + 1, membersArray, index,
 					membersArray.length - index - 1);
 			dataSize--;
+			writeToMembersFile(membersArray,dataSize);
+			
 			message = "Member removed.\n";
 
 		}
