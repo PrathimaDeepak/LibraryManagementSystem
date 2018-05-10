@@ -238,21 +238,17 @@ public class IOManager {
             String s;
             while ((s = in.readLine()) != null) {
                 String[] tokens = s.split(",");
-                if (tokens.length == 5 || (tokens.length == 4 && s.charAt(s.length() - 1) == ',')) {
-                    if (getUserInterface().getValidator().isValidBorrowingLine(tokens)) {
+                if (tokens.length == 4 || (tokens.length == 3 && s.charAt(s.length() - 1) == ',')) {
                         dataArray[i] = new Borrower();
-                        dataArray[i].setIsbn(tokens[0]);
-                        dataArray[i].setId(Integer.parseInt(tokens[1]));
-                        dataArray[i].setDateIssued(parseDate(tokens[2]));
-                        dataArray[i].setDueDate(parseDate(tokens[3]));
-                        dataArray[i] // dateReturned==null when its field
-                                // contains " " or is empty
-                                .setDateReturned((tokens.length == 4 || tokens[4].equalsIgnoreCase(" ")) ? null
-                                : parseDate(tokens[4]));
+                        dataArray[i].setBookId(tokens[0]);
+                        dataArray[i].setStudentId(tokens[1]);
+                        dataArray[i].setDateIssued(tokens[2]);
+                        dataArray[i].setDueDate(tokens[3]);
+                       
                        
                         i++;
                     }
-                }
+                
             }
             in.close();
             getUserInterface().getBorrower().setDataSize(i);
@@ -346,7 +342,7 @@ public class IOManager {
      * @return String representing the date
      */
     public static String formatDate(Date aDate) {
-        SimpleDateFormat formatter = new SimpleDateFormat("MMMMM dd yyyy");
+        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
         if (aDate == null) {
             return "";
         }
@@ -361,7 +357,7 @@ public class IOManager {
      * @throws ParseException
      */
     public static Date parseDate(String date) throws ParseException {
-        SimpleDateFormat format = new SimpleDateFormat("MMMMM dd yyyy");
+        SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
         return format.parse(date);
     }
     

@@ -229,6 +229,24 @@ public class Validator {
 		
 		return true;
 	}
+	
+	public boolean isValidReturnBookData(String bookId, String studentId) {
+		if(studentId.isEmpty() || bookId.isEmpty()) {
+			return false;
+		}
+		
+		return true;
+	}
+	
+	public boolean isValidIssueBookData(String bookId, String studentId) {
+		if(studentId.isEmpty() || bookId.isEmpty()) {
+			return false;
+		}
+		
+		return true;
+	}
+	
+	
 
 
 }

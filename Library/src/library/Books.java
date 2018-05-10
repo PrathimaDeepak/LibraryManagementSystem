@@ -86,6 +86,13 @@ public class Books {
 		}
 	}
 	
+	public void updateBook(Book aBook) {
+			int index = searchBookById(aBook.getBookId());
+			booksArray[index] = aBook; // updating the book
+			writeToBooksFile(booksArray, dataSize);
+			dataSize++;
+	}
+	
 	private boolean checkForDuplicateBookID(String bookId,Book[] booksArray) {
 		for(int i=0; i< booksArray.length; i++) {
 			if(booksArray[i].getBookId().equalsIgnoreCase(bookId)) {

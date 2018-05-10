@@ -16,139 +16,64 @@ public class Borrower {
 	/**
 	 * book's ISBN
 	 */
-	private String isbn;
+	private String bookId;
 	/**
 	 * member's ID
 	 */
-	private int id;
+	private String studentId;
 	/**
 	 * date of borrowing the book
 	 */
-	private Date dateIssued;
+	private String dateIssued;
 	/**
 	 * Date due to return
 	 */
-	private Date dueDate;
-	/**
-	 * Date of returning the book
-	 */
-	private Date dateReturned;
-
-	/**
-	 * Default constructor
-	 */
+	private String dueDate;
+	
 	public Borrower() {
-		this("", 0, null, null, null);
+		
 	}
-
-	/**
-	 * @param isbn
-	 *            book's ISBN
-	 * @param id
-	 *            member's ID
-	 * @param dateIssued
-	 *            date issued
-	 * @param dueDate
-	 *            date due to return
-	 * @param dateReturned
-	 *            date of returning the book
-	 */
-	public Borrower(String isbn, int id, Date dateIssued, Date dueDate,
-			Date dateReturned) {
-		this.isbn = isbn;
-		this.id = id;
+	
+	public Borrower(String bookId, String studentId, String dateIssued, String dueDate) {
+		super();
+		this.bookId = bookId;
+		this.studentId = studentId;
 		this.dateIssued = dateIssued;
 		this.dueDate = dueDate;
-		this.dateReturned = dateReturned;
 	}
 
-	// setters and getters for class fields
-	/**
-	 * @return the ISBN
-	 */
-	public String getIsbn() {
-		return isbn;
+	public String getBookId() {
+		return bookId;
 	}
 
-	/**
-	 * @param isbn
-	 *            the ISBN to set
-	 */
-	public void setIsbn(String isbn) {
-		this.isbn = isbn;
+	public void setBookId(String bookId) {
+		this.bookId = bookId;
 	}
 
-	/**
-	 * @return the ID
-	 */
-	public int getId() {
-		return id;
+	public String getStudentId() {
+		return studentId;
 	}
 
-	/**
-	 * @param id
-	 *            the ID to set
-	 */
-	public void setId(int id) {
-		this.id = id;
+	public void setStudentId(String studentId) {
+		this.studentId = studentId;
 	}
 
-	/**
-	 * @return the dateIssued
-	 */
-	public Date getDateIssued() {
+	public String getDateIssued() {
 		return dateIssued;
 	}
 
-	/**
-	 * @param dateIssued
-	 *            the dateIssued to set
-	 */
-	public void setDateIssued(Date dateIssued) {
+	public void setDateIssued(String dateIssued) {
 		this.dateIssued = dateIssued;
 	}
 
-	/**
-	 * @return the dueDate
-	 */
-	public Date getDueDate() {
+	public String getDueDate() {
 		return dueDate;
 	}
 
-	/**
-	 * @param dueDate
-	 *            the dueDate to set
-	 */
-	public void setDueDate(Date dueDate) {
+	public void setDueDate(String dueDate) {
 		this.dueDate = dueDate;
 	}
-
-	/**
-	 * @return the dateReturned
-	 */
-	public Date getDateReturned() {
-		return dateReturned;
-	}
-
-	/**
-	 * @param dateReturned
-	 *            the dateReturned to set
-	 */
-	public void setDateReturned(Date dateReturned) {
-		this.dateReturned = dateReturned;
-	}
-
-	/**
-	 * borrower data represented in a line delimited line
-	 * 
-	 * @return formatted string
-	 * @see java.lang.Object#toString()
-	 */
-	public String toString() {
-		return isbn + "," + id + "," + IOManager.formatDate(dateIssued) + ","
-				+ IOManager.formatDate(dueDate) + ","
-				+ IOManager.formatDate(dateReturned);
-
-	}
+	
+	
 
 }

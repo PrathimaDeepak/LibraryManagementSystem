@@ -185,11 +185,11 @@ public class Members {
 	 */
 	public String displayMembers() {
 
-		String message = "Members\n--------\n";
+		String message = "StudentId     Name  ----  Class \n------------------------\n";
 		int counter = 0;
 		for (int i = 0; i < dataSize; i++) {
 			counter++;
-			message = message + counter + ")" + membersArray[i].getName()
+			message = message + membersArray[i].getStudentId() + "     " + membersArray[i].getName() + "  ----  " + membersArray[i].getStudentClass()
 					+ "\r\n";
 		}
 		if (counter == 0)
@@ -197,6 +197,42 @@ public class Members {
 		return message;
 
 	}
+	
+	/**
+	 * Method to search students
+	 * 
+	 * @return list of students
+	 */
+	public String searchStudent(String name, String studentId, String studentClass) {
+		if (name.isEmpty() && studentId.isEmpty() && studentClass.isEmpty()) // checking for empty input from the user
+			return "No results matching your request!\n";
+
+		String results = "Results:\n--------\n" + "StudentID      " + "Name   --   Class\n-------------------------------------\n";
+		int foundStudents = 0;
+		int i = 0;
+		name = name.trim().toLowerCase();
+		studentId = studentId.trim().toLowerCase();
+		studentClass = studentClass.trim();
+		
+		while (membersArray[i] != null) // linear search
+		{
+
+			if (membersArray[i].getName().toLowerCase().contains(name)
+					&& membersArray[i].getStudentId().toLowerCase().contains(studentId)
+					&& (studentClass.isEmpty() || String.valueOf(membersArray[i].getStudentClass()).equals(studentClass))) {
+				foundStudents++;
+			
+				results = results + membersArray[i].getStudentId() + "      " + membersArray[i].getName()  + "  --  " + membersArray[i].getStudentClass()
+						+ "\r\n";
+			}
+			i++;
+		}
+		if (foundStudents == 0)
+			results = "No results matching your request!\n";
+		return results;
+	}
+	
+	
 
 
 
