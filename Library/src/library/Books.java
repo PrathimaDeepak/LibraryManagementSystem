@@ -7,7 +7,7 @@ import java.io.IOException;
 /**
  * This class manages book data
  * 
- * @author Amr Nabil
+ * @author Prathima
  * 
  */
 public class Books {
@@ -21,10 +21,6 @@ public class Books {
 	 */
 	private int dataSize;
 
-
-	/**
-	 * Default constructor
-	 */
     private UserInterface userInterface;
     
     	public UserInterface getUserInterface(){
@@ -35,33 +31,22 @@ public class Books {
        this.userInterface = userInterface;
     }
 
-	// setters and getters for class fields
-	/**
-	 * @return the booksArray
-	 */
+	
 	public Book[] getBooksArray() {
 		return booksArray;
 	}
 
-	/**
-	 * @param booksArray
-	 *            the booksArray to set
-	 */
+	
 	public void setBooksArray(Book[] booksArray) {
 		this.booksArray = booksArray;
 	}
 
-	/**
-	 * @return the dataSize
-	 */
+	
 	public int getDataSize() {
 		return dataSize;
 	}
 
-	/**
-	 * @param dataSize
-	 *            the dataSize to set
-	 */
+	
 	public void setDataSize(int dataSize) {
 		this.dataSize = dataSize;
 	}
@@ -86,6 +71,12 @@ public class Books {
 		}
 	}
 	
+	/**
+	 * This method updates a new book to the library
+	 * 
+	 * @param aBook
+	 *            
+	 */
 	public void updateBook(Book aBook) {
 			int index = searchBookById(aBook.getBookId());
 			booksArray[index] = aBook; // updating the book
@@ -93,6 +84,12 @@ public class Books {
 			dataSize++;
 	}
 	
+	/**
+	 * This method checks if there is already a book with the same ID
+	 * 
+	 * @param book ID, and the books in library
+	 *            
+	 */
 	private boolean checkForDuplicateBookID(String bookId,Book[] booksArray) {
 		for(int i=0; i< booksArray.length; i++) {
 			if(booksArray[i] != null && booksArray[i].getBookId().equalsIgnoreCase(bookId)) {
@@ -102,6 +99,12 @@ public class Books {
 		return false;
 	}
 	
+	/**
+	 * This method writes all the books to the text file
+	 * 
+	 * @param booksArray, datasize
+	 *            
+	 */
 	public void writeToBooksFile(Book[] booksArray, int dataSize) {
 		final String file_name = "src/resources/books.txt";
 		BufferedWriter bw = null;

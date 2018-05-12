@@ -40,7 +40,7 @@ import java.awt.Color;
 
 /**
  *
- * @author MOE
+ * @author Prathima
  */
 @SuppressWarnings("serial")
 public class UserInterface extends javax.swing.JFrame {
@@ -162,19 +162,6 @@ public class UserInterface extends javax.swing.JFrame {
 		jScrollPane4 = new javax.swing.JScrollPane();
 		jTextArea4 = new javax.swing.JTextArea();
 		jTextArea4.setEditable(false);
-		jPanel3 = new javax.swing.JPanel();
-		jLabel17 = new javax.swing.JLabel();
-		jLabel18 = new javax.swing.JLabel();
-		jLabel19 = new javax.swing.JLabel();
-		jLabel20 = new javax.swing.JLabel();
-		jTextField9 = new javax.swing.JTextField();
-		jTextField10 = new javax.swing.JTextField();
-		jTextField12 = new javax.swing.JTextField();
-		jButton2 = new javax.swing.JButton();
-		jButton2.setFont(new Font("Lucida Grande", Font.PLAIN, 14));
-		jScrollPane2 = new javax.swing.JScrollPane();
-		jTextArea2 = new javax.swing.JTextArea();
-		jTextArea2.setEditable(false);
 		jPanel4 = new javax.swing.JPanel();
 		jLabel21 = new javax.swing.JLabel();
 		jTextField21 = new javax.swing.JTextField();
@@ -182,8 +169,6 @@ public class UserInterface extends javax.swing.JFrame {
 		jTextArea10 = new javax.swing.JTextArea();
 		jTextArea10.setEditable(false);
 		jButton4 = new javax.swing.JButton();
-		jPanel6 = new javax.swing.JPanel();
-		jScrollPane3 = new javax.swing.JScrollPane();
 		jTabbedPane3 = new javax.swing.JTabbedPane();
 		jPanel8 = new javax.swing.JPanel();
 		jLabel24 = new javax.swing.JLabel();
@@ -192,20 +177,11 @@ public class UserInterface extends javax.swing.JFrame {
 		jTextArea6 = new javax.swing.JTextArea();
 		jTextArea6.setEditable(false);
 		jButton6 = new javax.swing.JButton();
-		jPanel9 = new javax.swing.JPanel();
-		jScrollPane7 = new javax.swing.JScrollPane();
-		jTextArea7 = new javax.swing.JTextArea();
-		jTextArea7.setEditable(false);
 		jTabbedPane4 = new javax.swing.JTabbedPane();
 		jPanel14 = new javax.swing.JPanel();
 		jScrollPane5 = new javax.swing.JScrollPane();
 		jTextArea5 = new javax.swing.JTextArea();
 		jTextArea5.setEditable(false);
-		JsearchtextArea = new javax.swing.JTextArea();
-		JsearchtextArea.setEditable(false);
-		textArea =  new javax.swing.JTextArea();
-		jTextArea3 = new javax.swing.JTextArea();
-		jTextArea3.setEditable(false);
 		// CategoryDropdown = new javax.swing.JComboBox<String>();
 		// LanguageDropdown = new javax.swing.JComboBox<String>();
 		//availableFlag = new javax.swing.JCheckBox();
@@ -547,6 +523,194 @@ public class UserInterface extends javax.swing.JFrame {
 				btnResetBtn1ActionPerformed(evt);
 			}
 		});
+		jPanel6 = new javax.swing.JPanel();
+		jScrollPane3 = new javax.swing.JScrollPane();
+		jTextArea3 = new javax.swing.JTextArea();
+		jTextArea3.setEditable(false);
+		
+				jPanel6.addComponentListener(new java.awt.event.ComponentAdapter() {
+					public void componentShown(java.awt.event.ComponentEvent evt) {
+						jPanel6ComponentShown(evt);
+					}
+				});
+				
+						jTextArea3.setColumns(20);
+						jTextArea3.setRows(5);
+						jScrollPane3.setViewportView(jTextArea3);
+						
+								javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
+								jPanel6.setLayout(jPanel6Layout);
+								jPanel6Layout.setHorizontalGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+										.addGroup(jPanel6Layout.createSequentialGroup().addContainerGap()
+												.addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 515, Short.MAX_VALUE)
+												.addContainerGap()));
+								jPanel6Layout.setVerticalGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+										.addGroup(jPanel6Layout.createSequentialGroup().addContainerGap()
+												.addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 449, Short.MAX_VALUE)
+												.addContainerGap()));
+								
+										jTabbedPane2.addTab("Available Books", jPanel6);
+		textArea =  new javax.swing.JTextArea();
+		
+		panel_1 = new JPanel();
+		jTabbedPane2.addTab("Borrowed Books", null, panel_1, null);
+		panel_1.addComponentListener(new java.awt.event.ComponentAdapter() {
+			public void componentShown(java.awt.event.ComponentEvent evt) {
+				panel_1ComponentShown(evt);
+			}
+		});
+		
+		scrollPane_1 = new JScrollPane();
+		GroupLayout gl_panel_1 = new GroupLayout(panel_1);
+		gl_panel_1.setHorizontalGroup(
+			gl_panel_1.createParallelGroup(Alignment.LEADING)
+				.addGap(0, 615, Short.MAX_VALUE)
+				.addGroup(gl_panel_1.createSequentialGroup()
+					.addContainerGap()
+					.addComponent(scrollPane_1, GroupLayout.DEFAULT_SIZE, 603, Short.MAX_VALUE)
+					.addContainerGap())
+		);
+		gl_panel_1.setVerticalGroup(
+			gl_panel_1.createParallelGroup(Alignment.LEADING)
+				.addGap(0, 465, Short.MAX_VALUE)
+				.addGroup(gl_panel_1.createSequentialGroup()
+					.addContainerGap()
+					.addComponent(scrollPane_1, GroupLayout.DEFAULT_SIZE, 453, Short.MAX_VALUE)
+					.addContainerGap())
+		);
+		
+		//JTextArea textArea = new JTextArea();
+		textArea.setColumns(20);
+		textArea.setRows(5);
+		scrollPane_1.setViewportView(textArea);
+		panel_1.setLayout(gl_panel_1);
+		jPanel3 = new javax.swing.JPanel();
+		jLabel17 = new javax.swing.JLabel();
+		jLabel18 = new javax.swing.JLabel();
+		jLabel19 = new javax.swing.JLabel();
+		jLabel20 = new javax.swing.JLabel();
+		jTextField9 = new javax.swing.JTextField();
+		jTextField10 = new javax.swing.JTextField();
+		jTextField12 = new javax.swing.JTextField();
+		jButton2 = new javax.swing.JButton();
+		jButton2.setFont(new Font("Lucida Grande", Font.PLAIN, 14));
+		jScrollPane2 = new javax.swing.JScrollPane();
+		jTextArea2 = new javax.swing.JTextArea();
+		jTextArea2.setEditable(false);
+		jLabel17.setText("Title:");
+		
+				jLabel18.setText("Author:");
+				
+						jLabel19.setText("Category:");
+						
+								jLabel20.setText("Book ID:");
+								
+										jTextField12.addActionListener(new java.awt.event.ActionListener() {
+											public void actionPerformed(java.awt.event.ActionEvent evt) {
+												jTextField12ActionPerformed(evt);
+											}
+										});
+										
+												jButton2.setText("Search");
+												jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
+													public void mouseClicked(java.awt.event.MouseEvent evt) {
+														jButton2MouseClicked(evt);
+													}
+												});
+												jButton2.addActionListener(new java.awt.event.ActionListener() {
+													public void actionPerformed(java.awt.event.ActionEvent evt) {
+														jButton2ActionPerformed(evt);
+													}
+												});
+												
+														jTextArea2.setColumns(20);
+														jTextArea2.setRows(5);
+														jScrollPane2.setViewportView(jTextArea2);
+														
+																JTextField11 = new JComboBox<String>();
+																JTextField11.setModel(new DefaultComboBoxModel<String>(new String[] { "", "Supplementary Learning", "Small Stories",
+																		"Novel", "General Knowledge", "Inspiring/Motivational" }));
+																
+																		btnResetBtn2 = new JButton("Reset");
+																		btnResetBtn2.setFont(new Font("Lucida Grande", Font.PLAIN, 14));
+																		btnResetBtn2.addMouseListener(new java.awt.event.MouseAdapter() {
+																			public void mouseClicked(java.awt.event.MouseEvent evt) {
+																				btnResetBtn2MouseClicked(evt);
+																			}
+																		});
+																		btnResetBtn2.addActionListener(new java.awt.event.ActionListener() {
+																			public void actionPerformed(java.awt.event.ActionEvent evt) {
+																				btnResetBtn2ActionPerformed(evt);
+																			}
+																		});
+																		
+																				javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+																				jPanel3Layout
+																						.setHorizontalGroup(
+																								jPanel3Layout.createParallelGroup(Alignment.LEADING).addGroup(jPanel3Layout
+																										.createSequentialGroup().addContainerGap().addGroup(jPanel3Layout.createParallelGroup(
+																												Alignment.LEADING)
+																												.addGroup(jPanel3Layout
+																														.createSequentialGroup().addGroup(
+																																jPanel3Layout.createParallelGroup(Alignment.TRAILING)
+																																		.addComponent(jLabel19).addComponent(jLabel18)
+																																		.addComponent(jLabel17).addComponent(jLabel20))
+																														.addPreferredGap(ComponentPlacement.RELATED).addGroup(jPanel3Layout
+																																.createParallelGroup(Alignment.LEADING)
+																																.addComponent(
+																																		jTextField10, GroupLayout.PREFERRED_SIZE,
+																																		GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+																																.addComponent(
+																																		jTextField9, GroupLayout.PREFERRED_SIZE, 261,
+																																		GroupLayout.PREFERRED_SIZE)
+																																.addGroup(jPanel3Layout.createSequentialGroup()
+																																		.addGroup(jPanel3Layout
+																																				.createParallelGroup(Alignment.TRAILING, false)
+																																				.addComponent(JTextField11, Alignment.LEADING,
+																																						0, GroupLayout.DEFAULT_SIZE,
+																																						Short.MAX_VALUE)
+																																				.addComponent(jTextField12, Alignment.LEADING))
+																																		.addPreferredGap(ComponentPlacement.RELATED)
+																																		.addComponent(jButton2).addGap(6)
+																																		.addComponent(btnResetBtn2, GroupLayout.PREFERRED_SIZE,
+																																				88, GroupLayout.PREFERRED_SIZE)))
+																														.addGap(86))
+																												.addComponent(jScrollPane2, Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, 603,
+																														Short.MAX_VALUE))
+																										.addContainerGap()));
+																				jPanel3Layout.setVerticalGroup(jPanel3Layout.createParallelGroup(Alignment.LEADING).addGroup(jPanel3Layout
+																						.createSequentialGroup().addContainerGap()
+																						.addGroup(jPanel3Layout.createParallelGroup(Alignment.BASELINE).addComponent(jLabel17).addComponent(
+																								jTextField9, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+																						.addPreferredGap(ComponentPlacement.RELATED)
+																						.addGroup(jPanel3Layout.createParallelGroup(Alignment.BASELINE).addComponent(jLabel18).addComponent(
+																								jTextField10, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+																						.addPreferredGap(ComponentPlacement.RELATED)
+																						.addGroup(jPanel3Layout.createParallelGroup(Alignment.LEADING).addComponent(jLabel19)
+																								.addGroup(jPanel3Layout.createSequentialGroup()
+																										.addComponent(JTextField11, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
+																												GroupLayout.PREFERRED_SIZE)
+																										.addGap(5)
+																										.addGroup(jPanel3Layout.createParallelGroup(Alignment.BASELINE)
+																												.addComponent(jTextField12, GroupLayout.PREFERRED_SIZE,
+																														GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+																												.addComponent(jLabel20)
+																												.addComponent(jButton2, GroupLayout.PREFERRED_SIZE, 35,
+																														GroupLayout.PREFERRED_SIZE)
+																												.addComponent(btnResetBtn2, GroupLayout.PREFERRED_SIZE, 38,
+																														GroupLayout.PREFERRED_SIZE))))
+																						.addGap(18).addComponent(jScrollPane2, GroupLayout.DEFAULT_SIZE, 310, Short.MAX_VALUE)
+																						.addContainerGap()));
+																				jPanel3Layout.linkSize(SwingConstants.HORIZONTAL, new Component[] { jTextField9, jTextField10, jTextField12 });
+																				jPanel3.setLayout(jPanel3Layout);
+																				
+																						jTabbedPane2.addTab("Search", jPanel3);
+																						jPanel3.addComponentListener(new java.awt.event.ComponentAdapter() {
+																							public void componentShown(java.awt.event.ComponentEvent evt) {
+																								clearSearchBookFields();
+																								jTextArea2.setText("");
+																							}
+																						});
 
 		javax.swing.GroupLayout jPanel19Layout = new javax.swing.GroupLayout(jPanel19);
 		jPanel19Layout.setHorizontalGroup(jPanel19Layout.createParallelGroup(Alignment.LEADING).addGroup(jPanel19Layout
@@ -612,125 +776,11 @@ public class UserInterface extends javax.swing.JFrame {
 		jPanel2.setLayout(jPanel2Layout);
 
 		jTabbedPane2.addTab("Insert Book", jPanel2);
-		jLabel17.setText("Title:");
-
-		jLabel18.setText("Author:");
-
-		jLabel19.setText("Category:");
-
-		jLabel20.setText("Book ID:");
 		
 		jPanel2.addComponentListener(new java.awt.event.ComponentAdapter() {
 			public void componentShown(java.awt.event.ComponentEvent evt) {
 				clearInsertBookFields();
 				jTextArea4.setText("");
-			}
-		});
-
-		jTextField12.addActionListener(new java.awt.event.ActionListener() {
-			public void actionPerformed(java.awt.event.ActionEvent evt) {
-				jTextField12ActionPerformed(evt);
-			}
-		});
-
-		jButton2.setText("Search");
-		jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
-			public void mouseClicked(java.awt.event.MouseEvent evt) {
-				jButton2MouseClicked(evt);
-			}
-		});
-		jButton2.addActionListener(new java.awt.event.ActionListener() {
-			public void actionPerformed(java.awt.event.ActionEvent evt) {
-				jButton2ActionPerformed(evt);
-			}
-		});
-
-		jTextArea2.setColumns(20);
-		jTextArea2.setRows(5);
-		jScrollPane2.setViewportView(jTextArea2);
-
-		JTextField11 = new JComboBox<String>();
-		JTextField11.setModel(new DefaultComboBoxModel<String>(new String[] { "", "Supplementary Learning", "Small Stories",
-				"Novel", "General Knowledge", "Inspiring/Motivational" }));
-
-		btnResetBtn2 = new JButton("Reset");
-		btnResetBtn2.setFont(new Font("Lucida Grande", Font.PLAIN, 14));
-		btnResetBtn2.addMouseListener(new java.awt.event.MouseAdapter() {
-			public void mouseClicked(java.awt.event.MouseEvent evt) {
-				btnResetBtn2MouseClicked(evt);
-			}
-		});
-		btnResetBtn2.addActionListener(new java.awt.event.ActionListener() {
-			public void actionPerformed(java.awt.event.ActionEvent evt) {
-				btnResetBtn2ActionPerformed(evt);
-			}
-		});
-
-		javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-		jPanel3Layout
-				.setHorizontalGroup(
-						jPanel3Layout.createParallelGroup(Alignment.LEADING).addGroup(jPanel3Layout
-								.createSequentialGroup().addContainerGap().addGroup(jPanel3Layout.createParallelGroup(
-										Alignment.LEADING)
-										.addGroup(jPanel3Layout
-												.createSequentialGroup().addGroup(
-														jPanel3Layout.createParallelGroup(Alignment.TRAILING)
-																.addComponent(jLabel19).addComponent(jLabel18)
-																.addComponent(jLabel17).addComponent(jLabel20))
-												.addPreferredGap(ComponentPlacement.RELATED).addGroup(jPanel3Layout
-														.createParallelGroup(Alignment.LEADING)
-														.addComponent(
-																jTextField10, GroupLayout.PREFERRED_SIZE,
-																GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-														.addComponent(
-																jTextField9, GroupLayout.PREFERRED_SIZE, 261,
-																GroupLayout.PREFERRED_SIZE)
-														.addGroup(jPanel3Layout.createSequentialGroup()
-																.addGroup(jPanel3Layout
-																		.createParallelGroup(Alignment.TRAILING, false)
-																		.addComponent(JTextField11, Alignment.LEADING,
-																				0, GroupLayout.DEFAULT_SIZE,
-																				Short.MAX_VALUE)
-																		.addComponent(jTextField12, Alignment.LEADING))
-																.addPreferredGap(ComponentPlacement.RELATED)
-																.addComponent(jButton2).addGap(6)
-																.addComponent(btnResetBtn2, GroupLayout.PREFERRED_SIZE,
-																		88, GroupLayout.PREFERRED_SIZE)))
-												.addGap(86))
-										.addComponent(jScrollPane2, Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, 603,
-												Short.MAX_VALUE))
-								.addContainerGap()));
-		jPanel3Layout.setVerticalGroup(jPanel3Layout.createParallelGroup(Alignment.LEADING).addGroup(jPanel3Layout
-				.createSequentialGroup().addContainerGap()
-				.addGroup(jPanel3Layout.createParallelGroup(Alignment.BASELINE).addComponent(jLabel17).addComponent(
-						jTextField9, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-				.addPreferredGap(ComponentPlacement.RELATED)
-				.addGroup(jPanel3Layout.createParallelGroup(Alignment.BASELINE).addComponent(jLabel18).addComponent(
-						jTextField10, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-				.addPreferredGap(ComponentPlacement.RELATED)
-				.addGroup(jPanel3Layout.createParallelGroup(Alignment.LEADING).addComponent(jLabel19)
-						.addGroup(jPanel3Layout.createSequentialGroup()
-								.addComponent(JTextField11, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
-										GroupLayout.PREFERRED_SIZE)
-								.addGap(5)
-								.addGroup(jPanel3Layout.createParallelGroup(Alignment.BASELINE)
-										.addComponent(jTextField12, GroupLayout.PREFERRED_SIZE,
-												GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-										.addComponent(jLabel20)
-										.addComponent(jButton2, GroupLayout.PREFERRED_SIZE, 35,
-												GroupLayout.PREFERRED_SIZE)
-										.addComponent(btnResetBtn2, GroupLayout.PREFERRED_SIZE, 38,
-												GroupLayout.PREFERRED_SIZE))))
-				.addGap(18).addComponent(jScrollPane2, GroupLayout.DEFAULT_SIZE, 310, Short.MAX_VALUE)
-				.addContainerGap()));
-		jPanel3Layout.linkSize(SwingConstants.HORIZONTAL, new Component[] { jTextField9, jTextField10, jTextField12 });
-		jPanel3.setLayout(jPanel3Layout);
-
-		jTabbedPane2.addTab("Search", jPanel3);
-		jPanel3.addComponentListener(new java.awt.event.ComponentAdapter() {
-			public void componentShown(java.awt.event.ComponentEvent evt) {
-				clearSearchBookFields();
-				jTextArea2.setText("");
 			}
 		});
 
@@ -786,63 +836,7 @@ public class UserInterface extends javax.swing.JFrame {
 			}
 		});
 
-		jPanel6.addComponentListener(new java.awt.event.ComponentAdapter() {
-			public void componentShown(java.awt.event.ComponentEvent evt) {
-				jPanel6ComponentShown(evt);
-			}
-		});
-
-		jTextArea3.setColumns(20);
-		jTextArea3.setRows(5);
-		jScrollPane3.setViewportView(jTextArea3);
-
-		javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
-		jPanel6.setLayout(jPanel6Layout);
-		jPanel6Layout.setHorizontalGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-				.addGroup(jPanel6Layout.createSequentialGroup().addContainerGap()
-						.addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 515, Short.MAX_VALUE)
-						.addContainerGap()));
-		jPanel6Layout.setVerticalGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-				.addGroup(jPanel6Layout.createSequentialGroup().addContainerGap()
-						.addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 449, Short.MAX_VALUE)
-						.addContainerGap()));
-
-		jTabbedPane2.addTab("Available Books", jPanel6);
-
 		jTabbedPane1.addTab("Book Management", jTabbedPane2);
-		
-		panel_1 = new JPanel();
-		jTabbedPane2.addTab("Borrowed Books", null, panel_1, null);
-		panel_1.addComponentListener(new java.awt.event.ComponentAdapter() {
-			public void componentShown(java.awt.event.ComponentEvent evt) {
-				panel_1ComponentShown(evt);
-			}
-		});
-		
-		scrollPane_1 = new JScrollPane();
-		GroupLayout gl_panel_1 = new GroupLayout(panel_1);
-		gl_panel_1.setHorizontalGroup(
-			gl_panel_1.createParallelGroup(Alignment.LEADING)
-				.addGap(0, 615, Short.MAX_VALUE)
-				.addGroup(gl_panel_1.createSequentialGroup()
-					.addContainerGap()
-					.addComponent(scrollPane_1, GroupLayout.DEFAULT_SIZE, 603, Short.MAX_VALUE)
-					.addContainerGap())
-		);
-		gl_panel_1.setVerticalGroup(
-			gl_panel_1.createParallelGroup(Alignment.LEADING)
-				.addGap(0, 465, Short.MAX_VALUE)
-				.addGroup(gl_panel_1.createSequentialGroup()
-					.addContainerGap()
-					.addComponent(scrollPane_1, GroupLayout.DEFAULT_SIZE, 453, Short.MAX_VALUE)
-					.addContainerGap())
-		);
-		
-		//JTextArea textArea = new JTextArea();
-		textArea.setColumns(20);
-		textArea.setRows(5);
-		scrollPane_1.setViewportView(textArea);
-		panel_1.setLayout(gl_panel_1);
 
 		jTabbedPane3.setBorder(javax.swing.BorderFactory.createTitledBorder("Student Management"));
 		jTabbedPane3.addComponentListener(new java.awt.event.ComponentAdapter() {
@@ -986,6 +980,139 @@ public class UserInterface extends javax.swing.JFrame {
 				jTextArea12.setText("");
 			}
 		});
+		jPanel9 = new javax.swing.JPanel();
+		jScrollPane7 = new javax.swing.JScrollPane();
+		jTextArea7 = new javax.swing.JTextArea();
+		jTextArea7.setEditable(false);
+		
+				jPanel9.addComponentListener(new java.awt.event.ComponentAdapter() {
+					public void componentShown(java.awt.event.ComponentEvent evt) {
+						jPanel9ComponentShown(evt);
+					}
+				});
+				
+						jTextArea7.setColumns(20);
+						jTextArea7.setRows(5);
+						jScrollPane7.setViewportView(jTextArea7);
+						
+								javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
+								jPanel9.setLayout(jPanel9Layout);
+								jPanel9Layout.setHorizontalGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+										.addGroup(jPanel9Layout.createSequentialGroup().addContainerGap()
+												.addComponent(jScrollPane7, javax.swing.GroupLayout.DEFAULT_SIZE, 515, Short.MAX_VALUE)
+												.addContainerGap()));
+								jPanel9Layout.setVerticalGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+										.addGroup(jPanel9Layout.createSequentialGroup().addContainerGap()
+												.addComponent(jScrollPane7, javax.swing.GroupLayout.DEFAULT_SIZE, 449, Short.MAX_VALUE)
+												.addContainerGap()));
+								
+										jTabbedPane3.addTab("Display", jPanel9);
+		JsearchtextArea = new javax.swing.JTextArea();
+		JsearchtextArea.setEditable(false);
+		
+				JPanel JSearchPanel = new JPanel();
+				jTabbedPane3.addTab("Search", null, JSearchPanel, null);
+				
+						JLabel lblClass = new JLabel();
+						lblClass.setText("Class:");
+						
+								JLabel lblStudentId = new JLabel();
+								lblStudentId.setText("Student ID:");
+								
+										JLabel lblName = new JLabel();
+										lblName.setText("Name:");
+										
+												studentIDTextField = new JTextField();
+												
+														studentClassTextField = new JTextField();
+														
+																JButton button_1 = new JButton();
+																button_1.setFont(new Font("Lucida Grande", Font.PLAIN, 14));
+																button_1.setText("Search");
+																button_1.addMouseListener(new java.awt.event.MouseAdapter() {
+																	public void mouseClicked(java.awt.event.MouseEvent evt) {
+																		button_1MouseClicked(evt);
+																	}
+																});
+																button_1.addActionListener(new java.awt.event.ActionListener() {
+																	public void actionPerformed(java.awt.event.ActionEvent evt) {
+																		button_1ActionPerformed(evt);
+																	}
+																});
+																
+																		studentNameTextField = new JTextField();
+																		
+																				JScrollPane studentSearchPane = new JScrollPane();
+																				
+																						btnReset4 = new JButton("Reset");
+																						btnReset4.setFont(new Font("Lucida Grande", Font.PLAIN, 14));
+																						btnReset4.addMouseListener(new java.awt.event.MouseAdapter() {
+																							public void mouseClicked(java.awt.event.MouseEvent evt) {
+																								btnReset4MouseClicked(evt);
+																							}
+																						});
+																						btnReset4.addActionListener(new java.awt.event.ActionListener() {
+																							public void actionPerformed(java.awt.event.ActionEvent evt) {
+																								btnReset4ActionPerformed(evt);
+																							}
+																						});
+																						
+																								GroupLayout gl_JSearchPanel = new GroupLayout(JSearchPanel);
+																								gl_JSearchPanel.setHorizontalGroup(gl_JSearchPanel.createParallelGroup(Alignment.LEADING)
+																										.addGroup(gl_JSearchPanel.createSequentialGroup().addGroup(gl_JSearchPanel
+																												.createParallelGroup(Alignment.LEADING)
+																												.addGroup(gl_JSearchPanel.createSequentialGroup().addContainerGap()
+																														.addGroup(gl_JSearchPanel.createParallelGroup(Alignment.LEADING)
+																																.addGroup(gl_JSearchPanel.createSequentialGroup()
+																																		.addGroup(gl_JSearchPanel.createParallelGroup(Alignment.TRAILING)
+																																				.addComponent(lblClass).addComponent(lblStudentId)
+																																				.addComponent(lblName))
+																																		.addPreferredGap(ComponentPlacement.RELATED)
+																																		.addGroup(gl_JSearchPanel.createParallelGroup(Alignment.LEADING)
+																																				.addComponent(studentIDTextField, GroupLayout.PREFERRED_SIZE,
+																																						GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+																																				.addComponent(studentClassTextField, GroupLayout.PREFERRED_SIZE,
+																																						GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+																																				.addComponent(studentNameTextField, GroupLayout.PREFERRED_SIZE,
+																																						261, GroupLayout.PREFERRED_SIZE)))
+																																.addComponent(studentSearchPane, Alignment.TRAILING, GroupLayout.DEFAULT_SIZE,
+																																		591, Short.MAX_VALUE)))
+																												.addGroup(gl_JSearchPanel.createSequentialGroup().addGap(347).addComponent(button_1)
+																														.addPreferredGap(ComponentPlacement.RELATED)
+																														.addComponent(btnReset4, GroupLayout.PREFERRED_SIZE, 88, GroupLayout.PREFERRED_SIZE)))
+																												.addContainerGap()));
+																								gl_JSearchPanel.setVerticalGroup(gl_JSearchPanel.createParallelGroup(Alignment.LEADING).addGroup(gl_JSearchPanel
+																										.createSequentialGroup().addContainerGap()
+																										.addGroup(gl_JSearchPanel.createParallelGroup(Alignment.BASELINE).addComponent(lblName).addComponent(
+																												studentNameTextField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
+																												GroupLayout.PREFERRED_SIZE))
+																										.addPreferredGap(ComponentPlacement.RELATED)
+																										.addGroup(gl_JSearchPanel.createParallelGroup(Alignment.BASELINE).addComponent(lblStudentId)
+																												.addComponent(studentIDTextField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
+																														GroupLayout.PREFERRED_SIZE))
+																										.addPreferredGap(ComponentPlacement.RELATED)
+																										.addGroup(gl_JSearchPanel.createParallelGroup(Alignment.LEADING).addComponent(lblClass).addComponent(
+																												studentClassTextField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
+																												GroupLayout.PREFERRED_SIZE))
+																										.addPreferredGap(ComponentPlacement.RELATED)
+																										.addGroup(gl_JSearchPanel.createParallelGroup(Alignment.BASELINE)
+																												.addComponent(button_1, GroupLayout.PREFERRED_SIZE, 35, GroupLayout.PREFERRED_SIZE)
+																												.addComponent(btnReset4, GroupLayout.PREFERRED_SIZE, 33, GroupLayout.PREFERRED_SIZE))
+																										.addPreferredGap(ComponentPlacement.UNRELATED)
+																										.addComponent(studentSearchPane, GroupLayout.DEFAULT_SIZE, 286, Short.MAX_VALUE).addContainerGap()));
+																								gl_JSearchPanel.linkSize(SwingConstants.HORIZONTAL,
+																										new Component[] { studentIDTextField, studentClassTextField, studentNameTextField });
+																								
+																										// JTextArea JsearchtextArea = new JTextArea();
+																										studentSearchPane.setViewportView(JsearchtextArea);
+																										JSearchPanel.setLayout(gl_JSearchPanel);
+																										
+																										JSearchPanel.addComponentListener(new java.awt.event.ComponentAdapter() {
+																											public void componentShown(java.awt.event.ComponentEvent evt) {
+																												clearSearchStudentFields();
+																												JsearchtextArea.setText("");
+																											}
+																										});
 
 		javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
 		jPanel8.setLayout(jPanel8Layout);
@@ -1019,134 +1146,7 @@ public class UserInterface extends javax.swing.JFrame {
 			}
 		});
 
-		jPanel9.addComponentListener(new java.awt.event.ComponentAdapter() {
-			public void componentShown(java.awt.event.ComponentEvent evt) {
-				jPanel9ComponentShown(evt);
-			}
-		});
-
-		jTextArea7.setColumns(20);
-		jTextArea7.setRows(5);
-		jScrollPane7.setViewportView(jTextArea7);
-
-		javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
-		jPanel9.setLayout(jPanel9Layout);
-		jPanel9Layout.setHorizontalGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-				.addGroup(jPanel9Layout.createSequentialGroup().addContainerGap()
-						.addComponent(jScrollPane7, javax.swing.GroupLayout.DEFAULT_SIZE, 515, Short.MAX_VALUE)
-						.addContainerGap()));
-		jPanel9Layout.setVerticalGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-				.addGroup(jPanel9Layout.createSequentialGroup().addContainerGap()
-						.addComponent(jScrollPane7, javax.swing.GroupLayout.DEFAULT_SIZE, 449, Short.MAX_VALUE)
-						.addContainerGap()));
-
-		jTabbedPane3.addTab("Display", jPanel9);
-
-		JPanel JSearchPanel = new JPanel();
-		jTabbedPane3.addTab("Search", null, JSearchPanel, null);
-
-		JLabel lblClass = new JLabel();
-		lblClass.setText("Class:");
-
-		JLabel lblStudentId = new JLabel();
-		lblStudentId.setText("Student ID:");
-
-		JLabel lblName = new JLabel();
-		lblName.setText("Name:");
-
-		studentIDTextField = new JTextField();
-
-		studentClassTextField = new JTextField();
-
-		JButton button_1 = new JButton();
-		button_1.setFont(new Font("Lucida Grande", Font.PLAIN, 14));
-		button_1.setText("Search");
-		button_1.addMouseListener(new java.awt.event.MouseAdapter() {
-			public void mouseClicked(java.awt.event.MouseEvent evt) {
-				button_1MouseClicked(evt);
-			}
-		});
-		button_1.addActionListener(new java.awt.event.ActionListener() {
-			public void actionPerformed(java.awt.event.ActionEvent evt) {
-				button_1ActionPerformed(evt);
-			}
-		});
-
-		studentNameTextField = new JTextField();
-
-		JScrollPane studentSearchPane = new JScrollPane();
-
-		btnReset4 = new JButton("Reset");
-		btnReset4.setFont(new Font("Lucida Grande", Font.PLAIN, 14));
-		btnReset4.addMouseListener(new java.awt.event.MouseAdapter() {
-			public void mouseClicked(java.awt.event.MouseEvent evt) {
-				btnReset4MouseClicked(evt);
-			}
-		});
-		btnReset4.addActionListener(new java.awt.event.ActionListener() {
-			public void actionPerformed(java.awt.event.ActionEvent evt) {
-				btnReset4ActionPerformed(evt);
-			}
-		});
-
-		GroupLayout gl_JSearchPanel = new GroupLayout(JSearchPanel);
-		gl_JSearchPanel.setHorizontalGroup(gl_JSearchPanel.createParallelGroup(Alignment.LEADING)
-				.addGroup(gl_JSearchPanel.createSequentialGroup().addGroup(gl_JSearchPanel
-						.createParallelGroup(Alignment.LEADING)
-						.addGroup(gl_JSearchPanel.createSequentialGroup().addContainerGap()
-								.addGroup(gl_JSearchPanel.createParallelGroup(Alignment.LEADING)
-										.addGroup(gl_JSearchPanel.createSequentialGroup()
-												.addGroup(gl_JSearchPanel.createParallelGroup(Alignment.TRAILING)
-														.addComponent(lblClass).addComponent(lblStudentId)
-														.addComponent(lblName))
-												.addPreferredGap(ComponentPlacement.RELATED)
-												.addGroup(gl_JSearchPanel.createParallelGroup(Alignment.LEADING)
-														.addComponent(studentIDTextField, GroupLayout.PREFERRED_SIZE,
-																GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-														.addComponent(studentClassTextField, GroupLayout.PREFERRED_SIZE,
-																GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-														.addComponent(studentNameTextField, GroupLayout.PREFERRED_SIZE,
-																261, GroupLayout.PREFERRED_SIZE)))
-										.addComponent(studentSearchPane, Alignment.TRAILING, GroupLayout.DEFAULT_SIZE,
-												591, Short.MAX_VALUE)))
-						.addGroup(gl_JSearchPanel.createSequentialGroup().addGap(347).addComponent(button_1)
-								.addPreferredGap(ComponentPlacement.RELATED)
-								.addComponent(btnReset4, GroupLayout.PREFERRED_SIZE, 88, GroupLayout.PREFERRED_SIZE)))
-						.addContainerGap()));
-		gl_JSearchPanel.setVerticalGroup(gl_JSearchPanel.createParallelGroup(Alignment.LEADING).addGroup(gl_JSearchPanel
-				.createSequentialGroup().addContainerGap()
-				.addGroup(gl_JSearchPanel.createParallelGroup(Alignment.BASELINE).addComponent(lblName).addComponent(
-						studentNameTextField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
-						GroupLayout.PREFERRED_SIZE))
-				.addPreferredGap(ComponentPlacement.RELATED)
-				.addGroup(gl_JSearchPanel.createParallelGroup(Alignment.BASELINE).addComponent(lblStudentId)
-						.addComponent(studentIDTextField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
-								GroupLayout.PREFERRED_SIZE))
-				.addPreferredGap(ComponentPlacement.RELATED)
-				.addGroup(gl_JSearchPanel.createParallelGroup(Alignment.LEADING).addComponent(lblClass).addComponent(
-						studentClassTextField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
-						GroupLayout.PREFERRED_SIZE))
-				.addPreferredGap(ComponentPlacement.RELATED)
-				.addGroup(gl_JSearchPanel.createParallelGroup(Alignment.BASELINE)
-						.addComponent(button_1, GroupLayout.PREFERRED_SIZE, 35, GroupLayout.PREFERRED_SIZE)
-						.addComponent(btnReset4, GroupLayout.PREFERRED_SIZE, 33, GroupLayout.PREFERRED_SIZE))
-				.addPreferredGap(ComponentPlacement.UNRELATED)
-				.addComponent(studentSearchPane, GroupLayout.DEFAULT_SIZE, 286, Short.MAX_VALUE).addContainerGap()));
-		gl_JSearchPanel.linkSize(SwingConstants.HORIZONTAL,
-				new Component[] { studentIDTextField, studentClassTextField, studentNameTextField });
-
-		// JTextArea JsearchtextArea = new JTextArea();
-		studentSearchPane.setViewportView(JsearchtextArea);
-		JSearchPanel.setLayout(gl_JSearchPanel);
-
 		jTabbedPane1.addTab("Student Management", jTabbedPane3);
-		
-		JSearchPanel.addComponentListener(new java.awt.event.ComponentAdapter() {
-			public void componentShown(java.awt.event.ComponentEvent evt) {
-				clearSearchStudentFields();
-				JsearchtextArea.setText("");
-			}
-		});
 
 		jTabbedPane4.setBorder(javax.swing.BorderFactory.createTitledBorder("Administrative Actions"));
 		jTabbedPane4.addComponentListener(new java.awt.event.ComponentAdapter() {
@@ -1563,8 +1563,8 @@ public class UserInterface extends javax.swing.JFrame {
 		jTabbedPane1.addTab("About", null, jTabbedPane5, null);
 		
 		txtrDfasdasda = new JTextArea();
+		txtrDfasdasda.setText("Mission and Vision:\n\nTo cultivate the habit of reading and introduce today’s less privileged children to the world of\nbooks by making them accessible\n\nPF Pusthakaalaya is an initiative to set-up mini-library in schools primarily rural government \nones which lack support from Govt. or any other organisation there by denying the children \nan opportunity to explore more. \n\nPanchajanya foundation aims at providing various facilities to the needy without any \ndifferentiation of caste, creed, color or gender. The Foundation does this through integrated \napproaches along with individuals and volunteers who support the foundation.\n\n\nKey Objectives of Panchajanya Foundation\n1.Identify & recognize talent – ‘Akshara’ supports to educate the needy & capable\n2.Identify & support – ‘Arogya’ supports those who are in need of the basic medical care\n3.Public communication and advocacy – ‘Adyathma’ intends to inculcate strong spiritual \nand philosophical values.\n\nFor more information:\nWebsite: www.panchajanya.org\nFacebook. www.facebook.com/PanchajanyaFoundation\nMobile: +91 9845075250");
 		txtrDfasdasda.setEditable(false);
-		txtrDfasdasda.setText("dfasdasda");
 		jTabbedPane5.addTab("About Us", null, txtrDfasdasda, null);
 		getContentPane().setLayout(layout);
 

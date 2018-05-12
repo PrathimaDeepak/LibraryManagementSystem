@@ -1,6 +1,5 @@
 package library;
 
-import java.util.Date;
 
 /**
  * A Book object represent a reading book, such that for each book, the system

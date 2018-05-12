@@ -7,7 +7,7 @@ import java.io.IOException;
 /**
  * This class manages members data
  * 
- * @author Amr Nabil
+ * @author Prathima
  * 
  */
 

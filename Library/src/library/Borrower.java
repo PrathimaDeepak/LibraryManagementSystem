@@ -1,24 +1,22 @@
 package library;
 
-import java.util.Date;
 
 /**
  * A Borrower object represent a borrowed book, such that for each book, the
- * system stores the book's ISBN, user ID, date issued,date due to return and
- * date returned.
+ * system stores the book's ID, student ID, date issued and date due
  * 
- * @author Amr Nabil
+ * @author Prathima
  * 
  */
 
 public class Borrower {
 
 	/**
-	 * book's ISBN
+	 * book's ID
 	 */
 	private String bookId;
 	/**
-	 * member's ID
+	 * student ID
 	 */
 	private String studentId;
 	/**

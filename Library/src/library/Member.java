@@ -2,9 +2,9 @@ package library;
 
 /**
  * A Member object represent a library member,for each member, the system stores
- * his ID, name, address, street, city, phone number, age and e-mail.
+ * his ID, name, and class
  * 
- * @author Amr Nabil
+ * @author Prathima
  * 
  */
 public class Member {
@@ -55,8 +55,5 @@ public class Member {
 	public void setStudentClass(int studentClass) {
 		this.studentClass = studentClass;
 	}
-	
-	
 
-	
 }

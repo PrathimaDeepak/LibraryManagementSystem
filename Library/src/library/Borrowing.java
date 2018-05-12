@@ -9,7 +9,7 @@ import java.util.Date;
 /**
  * This class manages different transactions on borrowing data.
  * 
- * @author Amr Nabil
+ * @author Prathima
  * 
  */
 
@@ -62,12 +62,12 @@ public class Borrowing {
 	}
 
 	/**
-	 * allows a member to borrow a book given its ISBN and the member's ID
+	 * allows a member to borrow a book given its ID and the student ID
 	 * 
 	 * @param isbn
 	 *            the book's ISBN
 	 * @param id
-	 *            the member's ID
+	 *            the student ID
 	 * @param due
 	 *            date due to return
 	 * @return message displaying method progress
@@ -108,6 +108,12 @@ public class Borrowing {
 
 	}
 	
+	/**
+	 * allows a student to borrow a book given its ID and the student ID
+	 * 
+	 * @param borrowingArray, datasize
+	 * 
+	 */
 	public void writeToBorrowFile(Borrower[] borrowingArray, int dataSize) {
 		final String file_name = "src/resources/borrow.txt";
 		BufferedWriter bw = null;
@@ -140,7 +146,7 @@ public class Borrowing {
 
 	/**
 	 * @param memberID
-	 * @return number of books the member has borrowed and has not been returned
+	 * @return number of books the student has borrowed and has not been returned
 	 */
 	public int getUnreturnedBooks(String memberID) {
 		int numberOfBooks = 0;
@@ -157,10 +163,11 @@ public class Borrowing {
 	 * searches for a book in the borrowing array given its ISBN and the
 	 * member's ID who has borrowed this book
 	 * 
-	 * @param isbn
-	 *            book's ISBN
+	 * @param bookId
+	 *            book's ID
 	 * @param id
-	 *            member's ID
+	 *            student's ID
+	 *            
 	 * @return the index of the book in the borrowing array
 	 */
 	private int searchBook(String bookId, String studentId) {
@@ -185,11 +192,10 @@ public class Borrowing {
 	 * returns a borrowed book to the library system
 	 * 
 	 * @param isbn
-	 *            Book's ISBN
+	 *            Book's ID
 	 * @param id
-	 *            Member's ID
-	 * @param dateReturned
-	 *            the date when the book was returned
+	 *            student's ID
+	 * 
 	 * @return message displaying method progress
 	 */
 	public String returnBook(String bookId, String studentId) {
@@ -267,9 +273,15 @@ public class Borrowing {
 			message = "No over due books.\n";
 
 		return message;
-//
+
 	}
 
+
+	/**
+	 * This method is to search the borrowers as per studentID, bookId and due date
+	 * 
+	 * @return the book and borrower details
+	 */
 	public String searchBorrowDetails(String studentId, String bookId, String dueDateString) {
 
 		if (studentId.isEmpty() && bookId.isEmpty() && dueDateString.isEmpty()) // checking for empty input from the

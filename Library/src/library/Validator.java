@@ -1,11 +1,10 @@
 package library;
 
-import java.text.ParseException;
 
 /**
  * This class manages data validation methods
  * 
- * @author Amr Nabil
+ * @author Prathima
  * 
  */
 public class Validator {
