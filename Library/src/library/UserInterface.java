@@ -154,6 +154,7 @@ public class UserInterface extends javax.swing.JFrame {
 		jLabel10 = new javax.swing.JLabel();
 		jLabel11 = new javax.swing.JLabel();
 		jTextField13 = new javax.swing.JTextField();
+		jTextField13.setToolTipText("Ex: PF181001, where PF181 is mandatory and 001 can vary.");
 		jTextField14 = new javax.swing.JTextField();
 		jTextField15 = new javax.swing.JTextField();
 		jButton3 = new javax.swing.JButton();
@@ -531,6 +532,7 @@ public class UserInterface extends javax.swing.JFrame {
 		LanguageDropdown.setModel(new DefaultComboBoxModel<String>(new String[] { "Kannada", "English", "Both" }));
 
 		availableFlag_1 = new JCheckBox("Available For Loan");
+		availableFlag_1.setEnabled(false);
 		availableFlag_1.setSelected(true);
 
 		JButton btnResetBtn1 = new JButton("Reset");
@@ -1559,13 +1561,11 @@ public class UserInterface extends javax.swing.JFrame {
 
 		jTabbedPane5 = new JTabbedPane(JTabbedPane.TOP);
 		jTabbedPane1.addTab("About", null, jTabbedPane5, null);
-
-		lblNewLabel_4 = new JLabel(
-				"This is an initiative from Panchajanya Foundation.\n To make kids read more books.");
-		lblNewLabel_4.setVerticalTextPosition(SwingConstants.TOP);
-		lblNewLabel_4.setVerticalAlignment(SwingConstants.TOP);
-		lblNewLabel_4.setAlignmentY(0.0f);
-		jTabbedPane5.addTab("About PF Pushtakalaya", null, lblNewLabel_4, null);
+		
+		txtrDfasdasda = new JTextArea();
+		txtrDfasdasda.setEditable(false);
+		txtrDfasdasda.setText("dfasdasda");
+		jTabbedPane5.addTab("About Us", null, txtrDfasdasda, null);
 		getContentPane().setLayout(layout);
 
 		pack();
@@ -2012,7 +2012,6 @@ public class UserInterface extends javax.swing.JFrame {
 	private JScrollPane scrollPane;
 	private JTextArea textArea_2;
 	private JTabbedPane jTabbedPane5;
-	private JLabel lblNewLabel_4;
 	private JButton btnResetBtn2;
 	private JButton btnReset4;
 	private JButton btnReset5;
@@ -2024,4 +2023,5 @@ public class UserInterface extends javax.swing.JFrame {
 	private JLabel lblForTheReader;
 	private JLabel lblFbpanchajanyafoundation;
 	private JLabel label;
+	private JTextArea txtrDfasdasda;
 }

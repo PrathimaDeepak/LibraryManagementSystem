@@ -152,7 +152,7 @@ public class Books {
 				&& bookId.isEmpty()) // checking for empty input from the user
 			return "No results matching your request!\n";
 
-		String results = "Results:\n--------\n" + "BookID   " + "Title  --  Availability\n-------------------------------------\n";
+		String results = "Results:\n--------\n" + "BookID        " + "Title  --  Availability\n-------------------------------------\n";
 		int foundBooks = 0;
 		int i = 0;
 		title = title.trim().toLowerCase();
@@ -246,10 +246,10 @@ public class Books {
 	 */
 	public String displayBooks() {
 
-		String message = "BookID   " + "Title  --  Author\n-------------------------------------\n";
+		String message = "BookID      " + "Title  --  Author\n-------------------------------------\n";
 		int counter = 0;
 		for (int i = 0; i < dataSize; i++) {
-			if(booksArray[i].isAvailableForLoan()) {
+			if(booksArray[i] != null && booksArray[i].isAvailableForLoan()) {
 				counter++;
 				message = message + booksArray[i].getBookId() + "   " + booksArray[i].getTitle() + " -- " + booksArray[i].getAuthor() + "\r\n";
 			}
@@ -267,10 +267,10 @@ public class Books {
 	 */
 	public String getBorrowedBooks() {
 
-		String message = "BookID   " + "Title  --  Author\n-------------------------------------\n";
+		String message = "BookID      " + "Title  --  Author\n-------------------------------------\n";
 		int counter = 0;
 		for (int i = 0; i < dataSize; i++) {
-			if(!booksArray[i].isAvailableForLoan()) {
+			if(booksArray[i] != null && !booksArray[i].isAvailableForLoan()) {
 				counter++;
 				message = message + booksArray[i].getBookId() + "   " + booksArray[i].getTitle() + " -- " + booksArray[i].getAuthor() + "\r\n";
 			}

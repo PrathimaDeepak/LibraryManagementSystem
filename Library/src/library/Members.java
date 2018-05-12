@@ -164,8 +164,8 @@ public class Members {
 		int index = searchStudentById(studentId);
 		if (index == -1)
 			message = "Invalid ID"; // ID validation
-//		else if (getUserInterface().getBorrower().getUnreturnedBooks(id) != 0)
-//			message = "You must return the books you borrowed before leaving the system!\n";
+		else if (getUserInterface().getBorrower().getUnreturnedBooks(studentId) != 0)
+			message = "You must return the books you borrowed before leaving school!\n";
 		else {
 			System.arraycopy(membersArray, index + 1, membersArray, index,
 					membersArray.length - index - 1);
@@ -189,7 +189,7 @@ public class Members {
 		int counter = 0;
 		for (int i = 0; i < dataSize; i++) {
 			counter++;
-			message = message + membersArray[i].getStudentId() + "     " + membersArray[i].getName() + "  ----  " + membersArray[i].getStudentClass()
+			message = message + membersArray[i].getStudentId() + "        " + membersArray[i].getName() + "  ----  " + membersArray[i].getStudentClass()
 					+ "\r\n";
 		}
 		if (counter == 0)
@@ -222,7 +222,7 @@ public class Members {
 					&& (studentClass.isEmpty() || String.valueOf(membersArray[i].getStudentClass()).equals(studentClass))) {
 				foundStudents++;
 			
-				results = results + membersArray[i].getStudentId() + "      " + membersArray[i].getName()  + "  --  " + membersArray[i].getStudentClass()
+				results = results + membersArray[i].getStudentId() + "         " + membersArray[i].getName()  + "  --  " + membersArray[i].getStudentClass()
 						+ "\r\n";
 			}
 			i++;
