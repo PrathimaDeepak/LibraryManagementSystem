@@ -159,13 +159,11 @@ public class Validator {
 	 * @return boolean, true when valid
 	 */
 	public boolean isValidDate(String date) {
-		try {
-			IOManager.parseDate(date);
-		} catch (ParseException e) {
-			return false;
+		if(date.isEmpty()) return false;
+		else {
+			String regex = "^(0[1-9]|[12][0-9]|3[01])[- /.](0[1-9]|1[012])[- /.](19|20)\\d\\d$";
+			return date.matches(regex);
 		}
-		return true;
-
 	}
 
 	/**
@@ -219,6 +217,9 @@ public class Validator {
 			return false;
 		}
 		//TO DO: add regex validation for book ID
+		if(!bookId.matches("^(PF){1}(18|19|20){1}[1-9]{1}[0-9]{3}$")) {
+			return false;
+		}
 		return true;
 	}
 	

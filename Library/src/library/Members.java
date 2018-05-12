@@ -91,7 +91,7 @@ public class Members {
 	
 	private boolean checkForDuplicateStudentID(String studentId, Member[] membersArray) {
 		for(int i=0; i< membersArray.length; i++) {
-			if(membersArray[i].getStudentId().equalsIgnoreCase(studentId)) {
+			if(membersArray[i] != null && membersArray[i].getStudentId().equalsIgnoreCase(studentId)) {
 				return true;
 			}
 		}
@@ -172,7 +172,7 @@ public class Members {
 			dataSize--;
 			writeToMembersFile(membersArray,dataSize);
 			
-			message = "Member removed.\n";
+			message = "Student with ID "+ studentId + " removed.\n";
 
 		}
 		return message;

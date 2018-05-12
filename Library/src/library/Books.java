@@ -95,7 +95,7 @@ public class Books {
 	
 	private boolean checkForDuplicateBookID(String bookId,Book[] booksArray) {
 		for(int i=0; i< booksArray.length; i++) {
-			if(booksArray[i].getBookId().equalsIgnoreCase(bookId)) {
+			if(booksArray[i] != null && booksArray[i].getBookId().equalsIgnoreCase(bookId)) {
 				return true;
 			}
 		}
@@ -230,7 +230,7 @@ public class Books {
 					booksArray.length - index - 1);
 			dataSize--;
 			writeToBooksFile(booksArray,dataSize);
-			message = "Book deleted successfully.\n";
+			message = "Book with ID "+ bookId +" deleted successfully.\n";
 		}
 		return message;
 
@@ -249,14 +249,37 @@ public class Books {
 		String message = "BookID   " + "Title  --  Author\n-------------------------------------\n";
 		int counter = 0;
 		for (int i = 0; i < dataSize; i++) {
-			counter++;
-			message = message + booksArray[i].getBookId() + "   " + booksArray[i].getTitle() + " -- " + booksArray[i].getAuthor() + "\r\n";
+			if(booksArray[i].isAvailableForLoan()) {
+				counter++;
+				message = message + booksArray[i].getBookId() + "   " + booksArray[i].getTitle() + " -- " + booksArray[i].getAuthor() + "\r\n";
+			}
 		}
 		if (counter == 0)
 			message = "No available books\n";
 		return message;
 
 	}
+	
+	/**
+	 * displays a list of all borrowed books
+	 * 
+	 * @return list of borrowed books
+	 */
+	public String getBorrowedBooks() {
 
+		String message = "BookID   " + "Title  --  Author\n-------------------------------------\n";
+		int counter = 0;
+		for (int i = 0; i < dataSize; i++) {
+			if(!booksArray[i].isAvailableForLoan()) {
+				counter++;
+				message = message + booksArray[i].getBookId() + "   " + booksArray[i].getTitle() + " -- " + booksArray[i].getAuthor() + "\r\n";
+			}
+		}
+		if (counter == 0)
+			message = "No Borrowed books\n";
+		return message;
+
+	}
+	
 	
 }
