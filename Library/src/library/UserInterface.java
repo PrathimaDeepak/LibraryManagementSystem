@@ -13,8 +13,16 @@ package library;
 import java.awt.Component;
 import java.awt.ComponentOrientation;
 import java.awt.Font;
+import java.awt.Window;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
 import java.text.ParseException;
 import java.util.Date;
+import java.util.Enumeration;
+import java.util.jar.JarEntry;
+import java.util.jar.JarFile;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -45,6 +53,7 @@ import java.awt.Color;
 @SuppressWarnings("serial")
 public class UserInterface extends javax.swing.JFrame {
 
+	private String destFilePath = "C:\\PFApp";
 	/**
 	 * object of type "Books"
 	 */
@@ -120,19 +129,60 @@ public class UserInterface extends javax.swing.JFrame {
 		this.data = new IOManager(this);
 		initComponents();
 		initFileLocations();
+		
 	}
 
 	private void initFileLocations() {
-		try {
-			data.setBooksFileLocation("src/resources/books.txt");
-			data.setBorrowingFileLocation("src/resources/borrow.txt");
-			data.setMembersFileLocation("src/resources/members.txt");
+		try {	
+			
+			String filePath = "C:\\PFApp\\resources";
+			File file = new File(filePath);
+			if(!file.exists()) {
+				file.mkdirs();
+				//extract the files from jar
+				String directory =  System.getProperty("user.dir");
+				extractFilesFromJar(directory + "/PFLibrary.jar");
+			}
+			
+			data.setBooksFileLocation(destFilePath + "\\resources\\books.txt");
+			data.setBorrowingFileLocation(destFilePath + "\\resources\\borrow.txt");
+			data.setMembersFileLocation(destFilePath + "\\resources\\members.txt");
 			books.setBooksArray(data.readBooksFile());
 			borrower.setBorrowingArray(data.readBorrowingFile());
 			members.setMembersArray(data.readMembersFile());
 
 		} catch (ParseException ex) {
 			Logger.getLogger(UserInterface.class.getName()).log(Level.SEVERE, null, ex);
+		}
+	}
+	
+	private boolean extractFilesFromJar(String jarFile) {
+		try {
+		JarFile jar = new JarFile(jarFile);
+		Enumeration<JarEntry> enumEntries = jar.entries();
+		
+		while (enumEntries.hasMoreElements()) {
+		    JarEntry file = (JarEntry) enumEntries.nextElement();
+		    File f = new File(destFilePath + java.io.File.separator + file.getName());
+		   
+		    if(f.getName().equalsIgnoreCase("books.txt")) {
+		    InputStream is = jar.getInputStream(file); // get the input stream
+		    FileOutputStream fos = new FileOutputStream(f);
+		    while (is.available() > 0) {  // write contents of 'is' to 'fos'
+		        fos.write(is.read());
+		    }
+		    fos.close();
+		    is.close();
+		    }
+		}
+		jar.close();
+		return true;
+		}catch(IOException e) {
+			System.out.println("Write exception---"+e);
+			setVisible(false);
+			dispose();
+			System.exit(0);
+			return false;
 		}
 	}
 
@@ -1282,8 +1332,8 @@ public class UserInterface extends javax.swing.JFrame {
 		jTabbedPane1.addTab("About", null, jTabbedPane5, null);
 		
 		txtrDfasdasda = new JTextArea();
-		txtrDfasdasda.setText("Mission and Vision:\n\nTo cultivate the habit of reading and introduce today’s less privileged children to the world of\nbooks by making them accessible\n\nPF Pusthakaalaya is an initiative to set-up mini-library in schools primarily rural government \nones which lack support from Govt. or any other organisation there by denying the children \nan opportunity to explore more. \n\nPanchajanya foundation aims at providing various facilities to the needy without any \ndifferentiation of caste, creed, color or gender. The Foundation does this through integrated \napproaches along with individuals and volunteers who support the foundation.\n\n\nKey Objectives of Panchajanya Foundation\n1.Identify & recognize talent – ‘Akshara’ supports to educate the needy & capable\n2.Identify & support – ‘Arogya’ supports those who are in need of the basic medical care\n3.Public communication and advocacy – ‘Adyathma’ intends to inculcate strong spiritual \nand philosophical values.\n\nFor more information:\nWebsite: www.panchajanya.org\nFacebook: www.facebook.com/PanchajanyaFoundation\nMobile: +91 9845075250");
 		txtrDfasdasda.setEditable(false);
+		txtrDfasdasda.setText("Mission and Vision:\r\n\r\nTo cultivate the habit of reading and introduce today's less privileged children \r\nto the world of books by making them accessible\r\n\r\nPF Pusthakaalaya is an initiative to set-up mini-library in schools primarily\r\nrural government ones which lack support from Govt. or any other\r\norganisation there by denying the children an opportunity to explore more. \r\n\r\nKey Objectives of Panchajanya Foundation\r\n1.Identify & recognize talent \"Akshara\" supports to educate the \r\n   needy & capable\r\n2.Identify & support \"Arogya\" supports those who are in need of the\r\n   basic medical care\r\n3.Public communication and advocacy \"Adyathma\" intends to inculcate\r\n   strong spiritual and philosophical values.\r\n\r\nFor more information:\r\nWebsite : www.panchajanya.org\r\nFacebook : www.facebook.com/PanchajanyaFoundation\r\nMobile : +91 9845075250");
 		jTabbedPane5.addTab("About Us", null, txtrDfasdasda, null);
 		getContentPane().setLayout(layout);
 

@@ -99,7 +99,7 @@ public class Members {
 	}
 	
 	public void writeToMembersFile(Member[] membersArray, int dataSize) {
-		final String file_name = "src/resources/members.txt";
+		final String file_name = "C:\\PFApp\\resources\\members.txt";
 		BufferedWriter bw = null;
 		FileWriter fw = null;
 		try {

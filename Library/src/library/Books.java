@@ -106,7 +106,7 @@ public class Books {
 	 *            
 	 */
 	public void writeToBooksFile(Book[] booksArray, int dataSize) {
-		final String file_name = "src/resources/books.txt";
+		final String file_name = "C:\\PFApp\\resources\\books.txt";
 		BufferedWriter bw = null;
 		FileWriter fw = null;
 		try {

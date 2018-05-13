@@ -115,7 +115,7 @@ public class Borrowing {
 	 * 
 	 */
 	public void writeToBorrowFile(Borrower[] borrowingArray, int dataSize) {
-		final String file_name = "src/resources/borrow.txt";
+		final String file_name = "C:\\PFApp\\resources\\borrow.txt";
 		BufferedWriter bw = null;
 		FileWriter fw = null;
 		try {
